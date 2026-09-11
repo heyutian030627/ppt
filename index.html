@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Game World: English Quest (Full Deck)</title>
+<style>
+  :root {
+    --bg-dark: #0f111a;
+    --card-bg: #1a1d2e;
+    --accent-gold: #ffd700;
+    --accent-cyan: #00f0ff;
+    --accent-red: #ff4757;
+    --accent-green: #2ed573;
+    --accent-purple: #a55eea;
+    --text-light: #f1f2f6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+  body { background: var(--bg-dark); color: var(--text-light); overflow: hidden; height: 100vh; display: flex; justify-content: center; align-items: center; }
+
+  /* Slide Container */
+  .deck { width: 92vw; height: 88vh; max-width: 1250px; position: relative; }
+  .slide { 
+    position: absolute; width: 100%; height: 100%; background: var(--card-bg); 
+    border: 2px solid #2f3542; border-radius: 16px; padding: 35px 40px; 
+    display: none; flex-direction: column; justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+  .slide.active { display: flex; animation: fadeIn 0.3s ease-in-out; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Typography & Headers */
+  h1 { font-size: 2.6rem; color: var(--accent-gold); text-shadow: 0 0 10px rgba(255,215,0,0.3); text-align: center; margin-bottom: 8px; }
+  h2 { font-size: 1.8rem; color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 8px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+  .subtitle { font-size: 0.95rem; color: #a4b0be; font-weight: normal; }
+  p, li { font-size: 1.1rem; line-height: 1.5; }
+  ul { list-style: none; }
+
+  /* Layout Grids */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+  /* Cards Design */
+  .card {
+    background: #252a41; border: 1px solid #3d4468; border-radius: 10px; padding: 14px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--accent-gold); }
+  .card-header { font-weight: bold; font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 6px; }
+  .tag { display: inline-block; background: #333a56; color: var(--accent-cyan); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; margin-top: 4px; }
+
+  /* Chunk Highlight Box */
+  .chunk-box { background: rgba(0,240,255,0.08); border-left: 4px solid var(--accent-cyan); padding: 8px 12px; margin: 6px 0; border-radius: 0 6px 6px 0; font-size: 1.05rem; }
+  .bold-highlight { color: var(--accent-gold); font-weight: bold; }
+
+  /* Footer Controls */
+  .controls { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; align-items: center; }
+  button { background: var(--accent-cyan); color: var(--bg-dark); border: none; padding: 8px 18px; font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
+  button:hover { background: var(--accent-gold); }
+  .page-num { font-weight: bold; color: #747d8c; }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- Slide 1: Cover -->
+  <div class="slide active">
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="color: var(--accent-cyan); letter-spacing: 2px; font-size: 1.3rem;">GRADE 5 ENGLISH GAMIFIED LESSON (120 MINS)</p>
+      <h1>🎮 MY GAME WORLD: ENGLISH QUEST</h1>
+      <p style="margin-top: 10px; font-size: 1.2rem; color: #a4b0be;">用英语完成一场游戏冒险：从单词积木到终极口语输出</p>
+    </div>
+
+    <div class="card" style="background: rgba(255,215,0,0.05); border-color: var(--accent-gold); margin: 25px auto; width: 85%;">
+      <div class="card-header" style="text-align: center;">🏆 XP 经验积分规则 (Rule of XP)</div>
+      <div class="grid-4" style="text-align: center; margin-top: 10px;">
+        <div>⭐ 说出单词<br><b>+1 XP</b></div>
+        <div>🧩 使用短语<br><b>+2 XP</b></div>
+        <div>💬 说出完整句<br><b>+3 XP</b></div>
+        <div>👑 完成 Quest<br><b>+5 XP</b></div>
+      </div>
+    </div>
+    <div style="text-align: center; color: #747d8c;">按下键盘 <b>右方向键 &rarr;</b> 或点击下方按钮翻页</div>
+  </div>
+
+  <!-- Slide 2: Roadmap -->
+  <div class="slide">
+    <h2>通关路径与任务地图 (Quest Roadmap) <span class="subtitle">Level Progress</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">Level 0: Game Start (0–10 min)</div>
+        <p>激活已有英语，建立 XP 经验值槽与关卡规则。</p>
+      </div>
+      <div class="card">
+        <div class="card-header">Level 1: Word & Equipment Map (10–40 min)</div>
+        <p>掌握职业卡、四类核心装备库与动作词块。</p>
+      </div>
+      <div class="card">
+        <div class="card-header">Level 2: Sentence Power-Up (40–75 min)</div>
+        <p>句型升级：<code>I like... because...</code> 与属性卡积木拼搭。</p>
+      </div>
+      <div class="card">
+        <div class="card-header">Level 3: Daily & Future Quests (75–100 min)</div>
+        <p>日常频率表达、能力转折 <code>can... but...</code> 与未来计划。</p>
+      </div>
+      <div class="card" style="grid-column: span 2; border-color: var(--accent-gold);">
+        <div class="card-header" style="color: var(--accent-gold);">Level 4: NPC Role-play & Boss Battle (100–120 min)</div>
+        <p>游戏商店交易对话 + 终极 30–60 秒 Boss 决战自由口语输出。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Characters & Roles -->
+  <div class="slide">
+    <h2>Level 1: 角色与职业卡 (Characters & Roles) <span class="subtitle">Choose Your Hero</span></h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-header">⚔️ Warrior (战士)</div>
+        <p>特点：Strong & Fast</p>
+        <div class="chunk-box">I am a brave warrior.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">🧙 Wizard (法师)</div>
+        <p>特点：Magic & Smart</p>
+        <div class="chunk-box">I can cast magic spells.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">🏹 Archer (弓箭手)</div>
+        <p>特点：Fast & Accurate</p>
+        <div class="chunk-box">I can shoot arrows.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">🔨 Builder (建造者)</div>
+        <p>特点：Creative</p>
+        <div class="chunk-box">I like to build houses.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">🧭 Explorer (探险家)</div>
+        <p>特点：Curious</p>
+        <div class="chunk-box">I want to explore the cave.</div>
+      </div>
+      <div class="card" style="border-color: var(--accent-red);">
+        <div class="card-header" style="color: var(--accent-red);">🐉 Enemies & Bosses</div>
+        <p>skeleton / dragon / final boss</p>
+        <div class="chunk-box">defeat the fire dragon</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Equipment Store -->
+  <div class="slide">
+    <h2>Level 1: 核心装备仓库 (Items & Equipment) <span class="subtitle">Gear Up</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">⚔️ Weapons & Attack (武器类)</div>
+        <ul>
+          <li><b>sword</b> (剑) &rarr; use a sword</li>
+          <li><b>wand / magic staff</b> (法杖) &rarr; cast a spell</li>
+          <li><b>bow & arrow</b> (弓箭) &rarr; shoot the target</li>
+          <li><b>axe / hammer</b> (战锤) &rarr; upgrade weapons</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">🛡️ Defense & Survival (防御生存)</div>
+        <ul>
+          <li><b>shield</b> (盾牌) &rarr; equip a shield</li>
+          <li><b>helmet / boots</b> (头盔战靴) &rarr; wear a helmet</li>
+          <li><b>potion</b> (药水/血瓶) &rarr; drink a potion</li>
+          <li><b>health kit</b> (医药箱) &rarr; heal teammates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">💎 Loot & Treasure (宝物道具)</div>
+        <ul>
+          <li><b>key / master key</b> (钥匙) &rarr; unlock doors</li>
+          <li><b>coin / gem</b> (宝石) &rarr; collect shiny gems</li>
+          <li><b>map / compass</b> (指南针) &rarr; follow the map</li>
+          <li><b>chest</b> (宝箱) &rarr; open the secret chest</li>
+        </ul>
+      </div>
+      <div class="card" style="border-color: var(--accent-gold);">
+        <div class="card-header" style="color: var(--accent-gold);">⚡ Power-Up Modifiers (属性卡)</div>
+        <p>搭配修饰词，升级词汇表达：</p>
+        <span class="tag">magic</span> <span class="tag">golden</span> <span class="tag">super</span> <span class="tag">secret</span>
+        <div class="chunk-box" style="margin-top: 8px;">
+          magic sword / golden chest / super potion / secret map
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 5: Action Chunks Game -->
+  <div class="slide">
+    <h2>Game 1: 动作词块挑战 (Action Combos) <span class="subtitle">Teacher Says</span></h2>
+    <p style="margin-bottom: 12px;">听指令做动作并喊出短语，连续触发 Combo 获得额外 XP！</p>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">🗡️ Attack & Action Chunks</div>
+        <div class="chunk-box">use a magic sword (使用魔法剑)</div>
+        <div class="chunk-box">cast a spell (施展魔法)</div>
+        <div class="chunk-box">shoot the target (射击目标)</div>
+        <div class="chunk-box">fight the enemy (与敌人战斗)</div>
+      </div>
+      <div class="card">
+        <div class="card-header">📦 Survival & Exploration Chunks</div>
+        <div class="chunk-box">equip a golden shield (装备金盾)</div>
+        <div class="chunk-box">drink a super potion (喝超级药水)</div>
+        <div class="chunk-box">unlock the door (解锁大门)</div>
+        <div class="chunk-box">collect shiny gems (收集宝石)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 6: Sentence Power-Up -->
+  <div class="slide">
+    <h2>Level 2: 句型升级 (I like... because...) <span class="subtitle">Sentence Power-Up</span></h2>
+    <p style="margin-bottom: 10px;">给出喜欢的理由，让表达更有说服力！</p>
+    
+    <div class="card" style="margin-bottom: 12px;">
+      <div class="card-header">🧩 句型公式</div>
+      <p style="font-size: 1.2rem; color: var(--accent-gold);">I like [ 游戏/职业 ] because [ 他们/它 ... ].</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">🎮 常见例句</div>
+        <div class="chunk-box">I like <span class="bold-highlight">action games</span> because they are <span class="bold-highlight">exciting</span>.</div>
+        <div class="chunk-box">I like playing a <span class="bold-highlight">Wizard</span> because magic is <span class="bold-highlight">creative</span>.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">💡 原因形容词词库 (Reason Bank)</div>
+        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <li>✨ <b>exciting</b> (令人兴奋的)</li>
+          <li>🎨 <b>creative</b> (富有创造力的)</li>
+          <li>🔥 <b>difficult</b> (有挑战性的)</li>
+          <li>☕ <b>relaxing</b> (令人放松的)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 7: Card Combo Practice -->
+  <div class="slide">
+    <h2>Level 2: 语言积木双卡拼搭 (Power-Up Combos) <span class="subtitle">Card Combos</span></h2>
+    <p style="margin-bottom: 12px;">抽取职业卡与装备卡，组合成完整表达！</p>
+
+    <div class="card" style="margin-bottom: 12px;">
+      <div class="card-header">🧩 Combo A: 职业 + 装备 (Class + Equipment)</div>
+      <div class="chunk-box"><span class="bold-highlight">I am a Wizard.</span> I have a <span class="bold-highlight">magic staff</span> and a <span class="bold-highlight">blue potion</span>.</div>
+      <div class="chunk-box"><span class="bold-highlight">I am an Archer.</span> I can shoot arrows with my <span class="bold-highlight">bow</span>.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🧩 Combo B: 任务 + 原因 (Quest + Reason)</div>
+      <div class="chunk-box">I want to buy a <span class="bold-highlight">golden shield</span> because the dragon is very <span class="bold-highlight">dangerous</span>.</div>
+      <div class="chunk-box">I usually team up with my <span class="bold-highlight">pet</span> to search for the <span class="bold-highlight">secret treasure</span>.</div>
+    </div>
+  </div>
+
+  <!-- Slide 8: Daily Quest & Skill -->
+  <div class="slide">
+    <h2>Level 3: 日常表达与能力转折 <span class="subtitle">Daily & Skill Quests</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">⏰ 日常频率表达 (Frequency)</div>
+        <ul>
+          <li>🟢 <b>always</b> (总是)</li>
+          <li>🔵 <b>usually</b> (通常)</li>
+          <li>🟡 <b>sometimes</b> (有时候)</li>
+          <li>🔴 <b>never</b> (从不)</li>
+        </ul>
+        <div class="chunk-box" style="margin-top: 10px;">I <b>usually</b> play games after school.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">💪 能力与转折 (Can & But)</div>
+        <p>不要只说 Yes/No，加入 <code>but</code> 让表达更高级：</p>
+        <div class="chunk-box">I can <span class="bold-highlight">fight small enemies</span>, but I can't <span class="bold-highlight">beat the final boss</span>.</div>
+        <div class="chunk-box">I can <span class="bold-highlight">use a sword</span>, but I can't <span class="bold-highlight">cast magic spells</span>.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 9: Future Quest -->
+  <div class="slide">
+    <h2>Level 3: 目标与未来计划 (Future Quest) <span class="subtitle">I Want To...</span></h2>
+    <p style="margin-bottom: 12px;">使用 <code>I want to...</code> 阐述下一步游戏冒险目标！</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-header">🗺️ 探索目标</div>
+        <div class="chunk-box">I want to <b>explore the secret cave</b>.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">💎 收集目标</div>
+        <div class="chunk-box">I want to <b>collect 50 golden gems</b>.</div>
+      </div>
+      <div class="card">
+        <div class="card-header">🐉 战斗目标</div>
+        <div class="chunk-box">I want to <b>defeat the fire dragon</b>.</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 15px; border-color: var(--accent-gold);">
+      <div class="card-header" style="color: var(--accent-gold);">🌟 链式长句升级 (Chain Sentence)</div>
+      <div class="chunk-box">I want to <b>buy a golden shield</b> because I want to <b>beat the final boss</b>.</div>
+    </div>
+  </div>
+
+  <!-- Slide 10: Game Shop Role-play -->
+  <div class="slide">
+    <h2>Level 4: NPC 角色扮演与商店 (NPC & Game Shop) <span class="subtitle">Role-play</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">🛒 游戏商店交易 (Shopkeeper & Player)</div>
+        <p><b>Shopkeeper:</b> Can I help you?</p>
+        <p><b>Player:</b> Can I have a <span class="bold-highlight">magic sword</span>, please?</p>
+        <p><b>Shopkeeper:</b> Sure. That's 20 golden coins.</p>
+        <p><b>Player:</b> Here you are.</p>
+        <p><b>Shopkeeper:</b> Thank you!</p>
+      </div>
+      <div class="card">
+        <div class="card-header">🛡️ NPC 关卡挑战 (NPC Challenge)</div>
+        <p><b>NPC:</b> What class are you?</p>
+        <p><b>Player:</b> I am a <span class="bold-highlight">brave warrior</span>.</p>
+        <p><b>NPC:</b> What can you do?</p>
+        <p><b>Player:</b> I can <span class="bold-highlight">use a sword</span>, but I can't <span class="bold-highlight">beat the dragon</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 11: Boss Battle -->
+  <div class="slide">
+    <h2>👑 Level 4: 终极 Boss 决战 (The Boss Battle) <span class="subtitle">30s Final Speech</span></h2>
+    <p style="margin-bottom: 10px;">回答 5 个问题并串联成一段话，击败终极 Boss！</p>
+
+    <div class="card" style="background: rgba(255,71,87,0.08); border-color: var(--accent-red);">
+      <div class="chunk-box"><b>1. CLASS / GAME:</b> I am an Explorer. I like adventure games...</div>
+      <div class="chunk-box"><b>2. REASON:</b> ...because they are exciting and creative.</div>
+      <div class="chunk-box"><b>3. USUALLY:</b> I usually play with my teammate after school.</div>
+      <div class="chunk-box"><b>4. CAN & BUT:</b> I can collect shiny gems, but I can't beat the dragon.</div>
+      <div class="chunk-box"><b>5. WANT TO:</b> I want to buy a golden shield next time!</div>
+    </div>
+  </div>
+
+  <!-- Slide 12: XP Settlement -->
+  <div class="slide">
+    <h2>🏆 XP 结算与成就解锁 (Rewards & Quest Log) <span class="subtitle">Game Over</span></h2>
+    <div class="grid-2">
+      <div class="card" style="border-color: var(--accent-gold);">
+        <div class="card-header" style="color: var(--accent-gold);">🎖️ 成就称号榜 (Title Board)</div>
+        <ul>
+          <li>🥉 <b>10–14 XP</b>: Game Beginner (游戏初学者)</li>
+          <li>🥈 <b>15–19 XP</b>: Game Player (资深玩家)</li>
+          <li>🥇 <b>20–24 XP</b>: English Gamer (英语高阶玩家)</li>
+          <li>👑 <b>25+ XP</b>: <b>English Game Master (终极游戏大师)</b></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">📝 课后 Daily Quest (Homework)</div>
+        <p><b>Mission 1 ⭐:</b> 记住 10 个今天解锁的装备或职业词汇。</p>
+        <p><b>Mission 2 ⭐⭐:</b> 录制一段 30 秒的个人 Boss Battle 口语表达音频。</p>
+        <p><b>Mission 3 ⭐⭐⭐:</b> 问一个家人：<i>What games do you like?</i> 并记录回答。</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation Controls -->
+<div class="controls">
+  <button id="prevBtn" onclick="prevSlide()">上一页 (Prev)</button>
+  <span class="page-num" id="pageNum">1 / 12</span>
+  <button id="nextBtn" onclick="nextSlide()">下一页 (Next)</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const pageNum = document.getElementById('pageNum');
+
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentSlide);
+    });
+    pageNum.textContent = `${currentSlide + 1} / ${slides.length}`;
+  }
+
+  function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      updateSlide();
+    }
+  }
+
+  function prevSlide() {
+    if (currentSlide > 0) {
+      currentSlide--;
+      updateSlide();
+    }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+</script>
+
+</body>
+</html>
